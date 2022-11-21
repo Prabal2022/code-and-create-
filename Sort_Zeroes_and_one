@@ -1,0 +1,49 @@
+//write an program to sort a zeroes and one in an array using single loop
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+void ZerosandOne(vector<int> &v)
+{
+    // int Zeores_=0;
+    int j=v.size()-1;
+    int i=0;
+     
+    while (i<j)
+    {
+         if(v[i]==0)
+         i++;
+         else if(v[i]==1 && v[j]==1)
+         j--;
+        else if(v[i]==1 && v[j]==0)
+         swap(v[i], v[j]);
+
+    }
+}
+
+int main()
+{
+    int n;
+    cout<<"Enter the size of dynamic array using vector ";
+    cin>>n;
+    vector<int> v;
+    cout<<"Enter elements in array :";
+    for (int i=0; i<n; i++)
+    {
+        int ele;
+        cin>>ele;
+        v.push_back(ele);
+    }
+    cout<<endl;
+
+    ZerosandOne(v);
+    cout<<"Display an resultant array :";
+    for(int i=0; i<n; i++)
+    {
+        cout<<v[i]<<" ";
+    }cout<<endl;
+
+    return 0;
+}
